@@ -1,0 +1,808 @@
+{
+	"info": {
+		"_postman_id": "8ea4fc44-1e1c-452e-81a3-15a2778d1e9a",
+		"name": "UnityAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Pools",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-EMC-REST-CLIENT",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/types/pool/instances",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"types",
+						"pool",
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get LUNs basic",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-EMC-REST-CLIENT",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/types/lun/instances",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"types",
+						"lun",
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get LUNs",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-EMC-REST-CLIENT",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/types/lun/instances?fields=id,name,health,sizeTotal&compact=true",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"types",
+						"lun",
+						"instances"
+					],
+					"query": [
+						{
+							"key": "fields",
+							"value": "id,name,health,sizeTotal"
+						},
+						{
+							"key": "compact",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get System",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-EMC-REST-CLIENT",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/types/metricValue/instances?filter=path EQ \"sp.*.physical.disk.*.responseTime AND interval EQ 60\"",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"types",
+						"metricValue",
+						"instances"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "path EQ \"sp.*.physical.disk.*.responseTime AND interval EQ 60\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Basic System Info",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-EMC-REST-CLIENT",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/types/basicSystemInfo/instances",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"types",
+						"basicSystemInfo",
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Service Task Endpoints",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-EMC-REST-CLIENT",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/types/serviceAction/instances",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"types",
+						"serviceAction",
+						"instances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Toggle SSH State",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-EMC-REST-CLIENT",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/instances/serviceAction/changeSSHStatus/action/execute",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"serviceAction",
+						"changeSSHStatus",
+						"action",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Restart Management Service",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-EMC-REST-CLIENT",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/instances/serviceAction/restartMGT/action/execute",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"serviceAction",
+						"restartMGT",
+						"action",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Shutdown System",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-EMC-REST-CLIENT",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/instances/serviceAction/shutdownSystem/action/execute",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"serviceAction",
+						"shutdownSystem",
+						"action",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SPA Service Mode",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-EMC-REST-CLIENT",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/instances/serviceAction/enterServiceModeSPA/action/execute",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"serviceAction",
+						"enterServiceModeSPA",
+						"action",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SPA Reboot",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-EMC-REST-CLIENT",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/instances/serviceAction/rebootSPA/action/execute",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"serviceAction",
+						"rebootSPA",
+						"action",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SPA ReImage",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-EMC-REST-CLIENT",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/instances/serviceAction/reimageSPA/action/execute",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"serviceAction",
+						"reimageSPA",
+						"action",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SPB Service Mode",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-EMC-REST-CLIENT",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/instances/serviceAction/enterServiceModeSPA/action/execute",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"serviceAction",
+						"enterServiceModeSPA",
+						"action",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SPB Reboot Copy",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-EMC-REST-CLIENT",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/instances/serviceAction/enterServiceModeSPB/action/execute",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"serviceAction",
+						"enterServiceModeSPB",
+						"action",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SPB ReImage",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-EMC-REST-CLIENT",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/instances/serviceAction/reimageSPB/action/execute",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"serviceAction",
+						"reimageSPB",
+						"action",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ip",
+			"value": "172.17.151.251"
+		},
+		{
+			"key": "pwd",
+			"value": "asdf"
+		}
+	]
+}
